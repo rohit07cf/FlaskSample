@@ -9,12 +9,15 @@ app=Flask(__name__)
 def hello12():
     return "Hello World!"
 
+#localhost:8084/getRequest?summary=Param1&change=Param2
 @app.route('/getRequest', methods=['get'])
 def create_cm():
     summary = request.args.get('summary', None) # use default value repalce 'None'
     change = request.args.get('change', None)
     # do something, eg. return json response
     return jsonify({'summary': summary, 'change': change})
+
+
 
 @app.route('/getPostParameters',methods=['POST'])
 def calculateModelAccuracyNew():
